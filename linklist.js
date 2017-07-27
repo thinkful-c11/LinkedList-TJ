@@ -81,15 +81,24 @@ const display = (linklist) => {
   }
 };
 
+const size = (linklist) => {
+  console.log(linklist.length);
+};
+
+const isEmpty = (link) => {
+  if(!link.length) return true;
+  return false;
+};
+
 const linkedList = new LinkedList ;
 
 linkedList.insert(0, 1);
 linkedList.insert(1, 2);
-display(linkedList);
+// display(linkedList);
 
 linkedList.insert(2, 3);
 linkedList.insert(3, 4);
 linkedList.insert(4, 5);
-
-display(linkedList);
-
+//size(linkedList);
+// display(linkedList);
+console.log(isEmpty(linkedList));

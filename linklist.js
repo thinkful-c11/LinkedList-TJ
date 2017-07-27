@@ -63,16 +63,6 @@ class LinkedList {
   }
 }
 
-//Exercise 2
-
-// Implement the following functions that supplements any Linked List operation. Note that these are functions that are not part of the Linked List class, so implement them outside the linked list class.
-
-// display: displays the linked list (you may also name this PrintList) - You should use this function for other exercises to show the content of your list.
-// size: returns the size of the linked list
-// isEmpty: finds if the list is empty or not
-// findPrevious: finds the node before the item you are looking for
-// findLast: returns the last node in the linked list
-
 const display = (linklist) => {
   let node = linklist.head;
   for (let i = 0; i < linklist.length; i++) {
@@ -115,3 +105,16 @@ linkedList.insert(4, 5);
 
 
 
+//Write an algorithm to find the middle element of a linked list without using the .length property.
+
+const findLengthOf = (link, node=link.head, length=1) => {
+  if(node.next === null){
+    return length;
+  }
+  return findLengthOf(link, node=node.next, length+1);
+};
+
+const findMiddleOf = (link) => {
+  return link.get(Math.floor(findLengthOf(link)/2));
+};
+console.log(findMiddleOf(linkedList));

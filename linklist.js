@@ -20,7 +20,7 @@ class LinkedList {
       this.head = newNode;
     }
     else {
-            // Find the node which we want to insert after
+      // Find the node which we want to insert after
       const node = this._find(index - 1);
       newNode.next = node.next;
       node.next = newNode;
@@ -31,7 +31,7 @@ class LinkedList {
 
   _find(index) {
     let node = this.head;
-    for (let i=0; i<index; i++) {
+    for (let i = 0; i < index; i++) {
       node = node.next;
     }
     return node;
@@ -54,7 +54,7 @@ class LinkedList {
       this.head = this.head.next;
     }
     else {
-            // Find the node before the one we want to remove
+      // Find the node before the one we want to remove
       const node = this._find(index - 1);
       node.next = node.next.next;
     }
@@ -72,4 +72,24 @@ class LinkedList {
 // isEmpty: finds if the list is empty or not
 // findPrevious: finds the node before the item you are looking for
 // findLast: returns the last node in the linked list
+
+const display = (linklist) => {
+  let node = linklist.head;
+  for (let i = 0; i < linklist.length; i++) {
+    console.log(node.value);
+    node = node.next;
+  }
+};
+
+const linkedList = new LinkedList ;
+
+linkedList.insert(0, 1);
+linkedList.insert(1, 2);
+display(linkedList);
+
+linkedList.insert(2, 3);
+linkedList.insert(3, 4);
+linkedList.insert(4, 5);
+
+display(linkedList);
 

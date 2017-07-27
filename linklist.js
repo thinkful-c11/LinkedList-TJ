@@ -141,7 +141,7 @@ const findMiddleOf = (link, ptr1=link.head, ptr2=findLast(link), boolean) => {
   return findMiddleOf(link, ptr1, ptr2, !boolean);
 };
 
-console.log(findMiddleOf(linkedList));
+// console.log(findMiddleOf(linkedList));
 
 const getNode = (link, index) => {
   let node = link.head;
@@ -153,10 +153,14 @@ const getNode = (link, index) => {
 
 //Write an algorithm to find the third element from the end of a linked list without using the .length property
 const findThirdFromEnd = (link) => {
-  return link.get(findLengthOf(link) - 3);
+  let node = link.head;
+  while(node.next.next.next !== null) {
+    node = node.next;
+  }
+  return node;
 };
 
-// console.log(findThirdFromEnd(linkedList));
+console.log(findThirdFromEnd(linkedList));
 
 // const reverse = (link) => {
 //   let node = getNode(link, findLengthOf(link) - 1);

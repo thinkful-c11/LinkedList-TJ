@@ -50,7 +50,7 @@ class LinkedList {
       throw new Error('Index error');
     }
 
-    if (index == 0) {
+    if (index === 0) {
       this.head = this.head.next;
     }
     else {
@@ -65,7 +65,7 @@ class LinkedList {
 
 const display = (linklist) => {
   let node = linklist.head;
-  while (node.next !== null) {
+  while (node !== null) {
     console.log(node.value);
     node = node.next;
   }
@@ -102,7 +102,7 @@ const findLast = (link) => {
   return node;
 };
 
-const linkedList = new LinkedList ;
+const linkedList = new LinkedList;
 
 linkedList.insert(0, 1);
 linkedList.insert(1, 2);
@@ -143,9 +143,9 @@ const findMiddleOf = (link, ptr1=link.head, ptr2=findLast(link), boolean) => {
 
 // console.log(findMiddleOf(linkedList));
 
-const getNode = (link, index) => {
+const getNode = (link, value) => {
   let node = link.head;
-  for(let i = 0; i < index; i++){
+  while(node.value !== value){
     node = node.next;
   }
   return node;
@@ -160,18 +160,25 @@ const findThirdFromEnd = (link) => {
   return node;
 };
 
-console.log(findThirdFromEnd(linkedList));
+//console.log(findThirdFromEnd(linkedList));
 
-// const reverse = (link) => {
-//   let node = getNode(link, findLengthOf(link) - 1);
-//   for(let i = 0; i < findLengthOf(link); i++){
-//     if(i === findLengthOf(link) - 1){
-//       node.next = null;
-//     }else{
-//       node.next = getNode(link, findLengthOf(link) - i);
-//     }
+//no more getNode, we only have to go through this once
+//
+
+// const reverse = (link, node=link.head, nextNode=getNode(link, node.next.value)) => {
+//   if(nextNode.next === null){
+//     return link;
 //   }
-//   return link;
+//   nextNode.next = node;
+//   return reverse(link, getNode(link, nextNode.next.next.value), getNode(link, nextNode.next.value));
 // };
-
 // console.log(reverse(linkedList));
+
+const reverse = (node) => {
+  if(node.next === null) return node;
+  const oldNode = node.next;
+  node.next = null;
+  const x = reverse(oldNode);
+  oldNode.next = node;
+  return x;
+};

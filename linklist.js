@@ -90,6 +90,14 @@ const isEmpty = (link) => {
   return false;
 };
 
+const findPrevious = (link, index) => {
+  console.log(link.get(index - 1));
+};
+
+const findLast = (link) => {
+  console.log(link.get(link.length - 1));
+};
+
 const linkedList = new LinkedList ;
 
 linkedList.insert(0, 1);
@@ -101,4 +109,9 @@ linkedList.insert(3, 4);
 linkedList.insert(4, 5);
 //size(linkedList);
 // display(linkedList);
-console.log(isEmpty(linkedList));
+// console.log(isEmpty(linkedList));
+// findPrevious(linkedList, 3);
+// findLast(linkedList);
+
+
+

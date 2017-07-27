@@ -117,4 +117,13 @@ const findLengthOf = (link, node=link.head, length=1) => {
 const findMiddleOf = (link) => {
   return link.get(Math.floor(findLengthOf(link)/2));
 };
-console.log(findMiddleOf(linkedList));
+// console.log(findMiddleOf(linkedList));
+
+
+
+//Write an algorithm to find the third element from the end of a linked list without using the .length property
+const findThirdFromEnd = (link) => {
+  return link.get(findLengthOf(link) - 3);
+};
+
+console.log(findThirdFromEnd(linkedList));
